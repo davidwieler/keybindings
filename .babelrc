@@ -1,0 +1,30 @@
+{
+    "compact": true,
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "modules": false,
+                "targets": {
+                    "browsers": [
+                        "last 2 versions",
+                        "ie >= 11"
+                    ]
+                }
+            }
+        ]
+    ],
+    "plugins": [
+        "babel-plugin-add-module-exports",
+        "@babel/plugin-transform-runtime"
+    ],
+    "env": {
+        "test": {
+            "plugins": [
+                [
+                    "istanbul"
+                ]
+            ]
+        }
+    }
+}

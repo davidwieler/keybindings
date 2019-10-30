@@ -2,10 +2,25 @@
 	"name": "@davidwieler/keybindings",
 	"version": "0.0.1",
 	"description": "",
-	"main": "index.js",
+	"main": "./dist/package.js",
 	"scripts": {
+		"build": "webpack --mode production --config webpack/webpack.config.js",
+		"build-dev": "webpack --mode development --config webpack/webpack.config.js",
+		"start": "webpack-dev-server -d --progress --mode development --config webpack/webpack.dev.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "",
-	"license": "ISC"
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.6.4",
+		"@babel/plugin-transform-runtime": "^7.6.2",
+		"@babel/preset-env": "^7.6.3",
+		"eslint": "^6.6.0",
+		"html-webpack-plugin": "^3.2.0",
+		"prettier": "^1.18.2",
+		"webpack": "^4.41.2",
+		"webpack-cli": "^3.3.9",
+		"webpack-dev-server": "^3.9.0",
+		"yargs": "^14.2.0"
+	}
 }
