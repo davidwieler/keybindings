@@ -1,5 +1,12 @@
 import './board.scss'
-import KeyBindings, { getKeysBound, toKeyName, attachBind, getAllBinds, isMac } from 'KeyBindings'
+import KeyBindings, {
+    getKeysBound,
+    toKeyName,
+    attachBind,
+    getAllBinds,
+    isMac,
+    removeBind
+} from 'KeyBindings'
 
 // console.log('KeyBindings', KeyBindings, getKeysBound)
 
@@ -30,6 +37,7 @@ KeyBindings({
             bindName: 'asd',
             key: 'shift+e',
             desc: 'test 1.a',
+            forceBind: true,
             keydown: () => {
                 // console.log('on keydown 1.a')
             },
@@ -67,6 +75,12 @@ attachBind({
     }
 })
 
-console.log('getAllBinds()', getAllBinds())
+const preRemove = getAllBinds()
+
+console.log('getAllBinds()', preRemove)
 
 console.log('isMac', isMac)
+
+// removeBind('shift+e')
+
+console.log('getAllBinds()', getAllBinds())

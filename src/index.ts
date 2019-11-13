@@ -19,6 +19,7 @@ interface Bind {
     desc: string
     keydown: (details: Details) => void
     keyup: (details: Details) => void
+    forceBind?: boolean
 }
 
 const binds: Array<Bind> = []
@@ -91,7 +92,38 @@ const bindAction = (hotKey: string, details: Details) => {
 }
 
 export const attachBind = (bind: Bind, el: HTMLElement) => {
-    binds.push(bind)
+    const existingBind = getKeysBound(bind.key)
+    const existingBindNamed = getKeysBoundByName(bind.bindName)
+
+    if (existingBindNamed.length) {
+        console.warn(
+            `A bind already exists named "${existingBindNamed[0].bindName}". Multiple binds with exact names not allowed.`
+        )
+        return
+    }
+
+    if (!existingBind.length || bind.forceBind) {
+        binds.push(bind)
+    } else {
+        console.warn(`A bind already exists for ${bind.key} called ${existingBind[0].bindName}`)
+    }
+}
+
+export const removeBind = (search: string) => {
+    const existingBind = getKeysBound(search)
+    const existingBindNamed = getKeysBoundByName(search)
+
+    if (existingBindNamed.length) {
+        const index = binds.findIndex((b) => b.bindName == search)
+        binds.splice(index, 1)
+    } else {
+        if (existingBind.length) {
+            existingBind.forEach((bind) => {
+                const index = binds.findIndex((b) => bind.key == search)
+                binds.splice(index, 1)
+            })
+        }
+    }
 }
 
 export const toKeyName = (name: string) => {
@@ -103,6 +135,12 @@ export const toKeyName = (name: string) => {
 export const getKeysBound = (hotKey: string) => {
     return binds.filter((bind) => {
         return bind.key === hotKey
+    })
+}
+
+export const getKeysBoundByName = (name: string) => {
+    return binds.filter((bind) => {
+        return bind.bindName === name
     })
 }
 
