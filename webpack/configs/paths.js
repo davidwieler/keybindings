@@ -9,6 +9,7 @@ const paths = {
     dist: resolveApp('dist'),
     demo: resolveApp('demo'),
     src: resolveApp('src'),
+    srcEntry: resolveApp('src/index.ts'),
     webpackConfig: resolveApp('webpack/config')
 }
 

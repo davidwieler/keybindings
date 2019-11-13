@@ -1,10 +1,9 @@
-const env = require('yargs').argv // use --env with webpack 2
+const env = require('yargs').argv
 const paths = require('./configs/paths')
-// const resolvers = require('./configs/resolvers')
-// const { client: loaders } = require('./configs/loaders')
-// const plugins = require('./configs/plugins')
+const resolvers = require('./configs/resolvers')
+const { client: loaders } = require('./configs/loaders')
+const plugins = require('./configs/plugins')
 
-let libraryName = 'pangea'
 let mode = 'production'
 
 if (env.mode !== 'production') {
@@ -16,7 +15,7 @@ process.env.NODE_ENV = env.mode
 const config = {
     mode: mode,
     entry: {
-        package: `${paths.src}/index.js`
+        package: paths.srcEntry
     },
     devtool: 'none',
     output: {
@@ -28,6 +27,11 @@ const config = {
         umdNamedDefine: true,
         globalObject: "typeof self !== 'undefined' ? self : this"
     },
+    module: {
+        rules: loaders
+    },
+    resolve: { ...resolvers },
+    plugins: [...plugins.client],
     watchOptions: {
         aggregateTimeout: 300,
         poll: 1000
