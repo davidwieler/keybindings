@@ -9,6 +9,6 @@
                              \|___|/                                                             \|_________|
 ```
 
-Working on a usefull readme and demo page....
+Working on a useful readme and demo page....
 
 For now, please see the [tests file](https://github.com/davidwieler/keybindings/blob/master/tests/bindings.test.js).
