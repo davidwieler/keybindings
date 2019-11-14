@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/davidwieler/keybindings/tree/master.svg?style=svg)](https://circleci.com/gh/davidwieler/keybindings/tree/master)
 ```
  ___  __        _______        ___    ___  ________      ___      ________       ________      ________
 |\  \|\  \     |\  ___ \      |\  \  /  /||\   __  \    |\  \    |\   ___  \    |\   ___ \    |\   ____\
