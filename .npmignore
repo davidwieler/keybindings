@@ -1,7 +1,27 @@
-.*
-**/tsconfig.json
-webpack
-node_modules
-src
-demo
+#tests
+tests
+coverage
 .circleci
+
+#build tools
+.prettierignore
+.eslintignore
+tsconfig.json
+jest.config.js
+.babelrc
+.prettierrc
+
+#linters
+.jscsrc
+.jshintrc
+.eslintrc*
+
+#editor settings
+.idea
+.editorconfig
+.vscode/**
+
+#other stuff
+demo
+webpack
+src
