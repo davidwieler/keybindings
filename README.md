@@ -1,4 +1,5 @@
-[![CircleCI](https://circleci.com/gh/davidwieler/keybindings/tree/master.svg?style=svg)](https://circleci.com/gh/davidwieler/keybindings/tree/master)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/davidwieler/keybindings) [![CircleCI](https://circleci.com/gh/davidwieler/keybindings/tree/master.svg?style=svg)](https://circleci.com/gh/davidwieler/keybindings/tree/master) ![GitHub issues](https://img.shields.io/github/issues-raw/davidwieler/keybindings) ![CircleCI](https://img.shields.io/circleci/build/github/davidwieler/keybindings) ![GitHub](https://img.shields.io/github/license/davidwieler/keybindings) ![GitHub last commit](https://img.shields.io/github/last-commit/davidwieler/keybindings) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@davidwieler/keybindings)
+
 ```
  ___  __        _______        ___    ___  ________      ___      ________       ________      ________
 |\  \|\  \     |\  ___ \      |\  \  /  /||\   __  \    |\  \    |\   ___  \    |\   ___ \    |\   ____\
