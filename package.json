@@ -9,8 +9,12 @@
     "start": "webpack-dev-server -d --progress --mode development --config webpack/webpack.dev.js",
     "test": "jest"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "David Wieler",
+  "license": "MIT",
+  "bugs": {
+	"url": "https://github.com/davidwieler/keybindings/issues"
+  },
+  "homepage": "https://github.com/davidwieler/keybindings",
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-transform-runtime": "^7.6.2",
