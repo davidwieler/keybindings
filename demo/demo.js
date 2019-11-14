@@ -15,6 +15,8 @@ KeyBindings({
     onAll: (event, keyData) => {
         const key = document.querySelectorAll(`[data-key="${keyData.keyCode}"]`)
 
+        // console.log('keyData', keyData)
+
         // if (keyData.type === 'keydown') {
         //     key[0].classList.add('active')
         // } else {
@@ -24,10 +26,10 @@ KeyBindings({
     binds: [
         {
             bindName: 'newNotebook',
-            key: 'shift+e',
+            key: 'd',
             desc: 'test 1',
             keydown: (keyData) => {
-                // console.log('on keydown', keyData)
+                console.log('on keydown d', keyData)
             },
             keyup: () => {
                 // console.log('on keyup')

@@ -81,11 +81,11 @@ const onAll = (event: Details) => {
 
 const bindAction = (hotKey: string, details: Details) => {
     return getKeysBound(hotKey).forEach((bind) => {
-        if (event.type === 'keydown' && bind.keydown.constructor === Function) {
+        if (details.type === 'keydown' && bind.keydown.constructor === Function) {
             bind.keydown(details)
         }
 
-        if (event.type === 'keyup' && bind.keydown.constructor === Function) {
+        if (details.type === 'keyup' && bind.keydown.constructor === Function) {
             bind.keyup(details)
         }
     })
@@ -114,12 +114,13 @@ export const removeBind = (search: string) => {
     const existingBindNamed = getKeysBoundByName(search)
 
     if (existingBindNamed.length) {
-        const index = binds.findIndex((b) => b.bindName == search)
+        const index = binds.findIndex((b) => b.bindName === search)
         binds.splice(index, 1)
     } else {
+        // console.log('unbinding by key', existingBind)
         if (existingBind.length) {
             existingBind.forEach((bind) => {
-                const index = binds.findIndex((b) => bind.key == search)
+                const index = binds.findIndex((b) => b.key == search)
                 binds.splice(index, 1)
             })
         }
@@ -162,7 +163,7 @@ export const Keybindings = (options = {}) => {
         attachBind(bind, defaults.el)
     })
 
-    if (defaults.onAll.constructor === Function) {
+    if (defaults.onAll && defaults.onAll.constructor === Function) {
         onAllBindAction = defaults.onAll
     }
 

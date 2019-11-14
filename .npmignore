@@ -3,3 +3,5 @@
 webpack
 node_modules
 src
+demo
+.circleci
