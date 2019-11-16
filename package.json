@@ -4,8 +4,8 @@
   "description": "",
   "main": "./dist/package.js",
   "scripts": {
-    "build": "webpack --mode production --config webpack/webpack.config.js",
-    "build-dev": "webpack --mode development --config webpack/webpack.config.js",
+    "build": "webpack --mode production --config webpack/webpack.config.js && tsc",
+    "build-dev": "webpack --mode development --config webpack/webpack.config.js && tsc",
     "start": "webpack-dev-server -d --progress --mode development --config webpack/webpack.dev.js",
     "test": "jest"
   },
@@ -36,6 +36,7 @@
     "prettier": "^1.18.2",
     "sass-loader": "^8.0.0",
     "source-map": "^0.7.3",
+    "terser": "^4.4.0",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.2",

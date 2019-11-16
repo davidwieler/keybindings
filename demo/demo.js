@@ -6,7 +6,7 @@ import KeyBindings, {
     getAllBinds,
     isMac,
     removeBind
-} from 'KeyBindings'
+} from 'KeyBindingsPkg'
 
 // console.log('KeyBindings', KeyBindings, getKeysBound)
 

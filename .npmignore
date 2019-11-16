@@ -10,6 +10,7 @@ tsconfig.json
 jest.config.js
 .babelrc
 .prettierrc
+scripts
 
 #linters
 .jscsrc
@@ -25,3 +26,4 @@ jest.config.js
 demo
 webpack
 src
+LICENSE

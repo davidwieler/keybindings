@@ -5,7 +5,7 @@ const paths = require('./configs/paths')
 const env = require('yargs').argv // use --env with webpack 2
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const WEBPACK_PORT = process.env.PORT || 8500
+const WEBPACK_PORT = process.env.PORT || 8502
 
 // Dev Scripts
 const htmlWebpackIncludes = require('./configs/dev-html-webpack')
