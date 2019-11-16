@@ -22,6 +22,14 @@ interface Bind {
     forceBind?: boolean
 }
 
+let defaults = {
+    debug: false,
+    el: document.body,
+    onAll: null,
+    binds: [],
+    longPressEnabled: false
+}
+
 const binds: Array<Bind> = []
 
 let onAllBindAction: Function = () => {}
@@ -91,7 +99,7 @@ const bindAction = (hotKey: string, details: Details) => {
     })
 }
 
-export const attachBind = (bind: Bind, el: HTMLElement) => {
+export const attachBind = (bind: Bind) => {
     const existingBind = getKeysBound(bind.key)
     const existingBindNamed = getKeysBoundByName(bind.bindName)
 
@@ -149,31 +157,31 @@ export const getAllBinds = () => {
     return binds
 }
 
+export const destroyBinds = () => {
+    defaults.el.removeEventListener('keydown', onAll)
+    defaults.el.removeEventListener('keyup', onAll)
+}
+
 export const Keybindings = (options = {}) => {
-    const defaults = {
-        debug: false,
-        el: document.body,
-        onAll: null,
-        binds: [],
-        longPressEnabled: false,
+    const init = {
+        ...defaults,
         ...options
     }
 
-    defaults.binds.forEach((bind: Bind) => {
-        attachBind(bind, defaults.el)
+    defaults = init
+
+    init.binds.forEach((bind: Bind) => {
+        attachBind(bind)
     })
 
-    if (defaults.onAll && defaults.onAll.constructor === Function) {
-        onAllBindAction = defaults.onAll
+    if (init.onAll && init.onAll.constructor === Function) {
+        onAllBindAction = init.onAll
     }
 
-    if (defaults.debug) {
-        defaults.el.removeEventListener('keydown', onAll)
-        defaults.el.removeEventListener('keyup', onAll)
+    destroyBinds()
 
-        defaults.el.addEventListener('keydown', onAll)
-        defaults.el.addEventListener('keyup', onAll)
-    }
+    init.el.addEventListener('keydown', onAll)
+    init.el.addEventListener('keyup', onAll)
 
     return defaults
 }

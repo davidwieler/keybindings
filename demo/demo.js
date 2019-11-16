@@ -5,8 +5,9 @@ import KeyBindings, {
     attachBind,
     getAllBinds,
     isMac,
-    removeBind
-} from 'KeyBindingsPkg'
+    removeBind,
+    destroyBinds
+} from 'KeyBindings'
 
 // console.log('KeyBindings', KeyBindings, getKeysBound)
 
@@ -86,3 +87,5 @@ console.log('isMac', isMac)
 // removeBind('shift+e')
 
 console.log('getAllBinds()', getAllBinds())
+
+destroyBinds()
