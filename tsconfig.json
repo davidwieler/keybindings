@@ -2,12 +2,11 @@
     "compilerOptions": {
         "outDir": "./dist/",
         "noImplicitAny": false,
-        "module": "amd",
+        "module": "es6",
         "target": "es5",
         "allowJs": true,
         "sourceMap": true,
-        "moduleResolution": "node",
-        "outFile": "./dist/index.js"
+        "moduleResolution": "node"
     },
     "include": [
         "src/**/*"
