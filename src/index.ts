@@ -89,11 +89,11 @@ const onAll = (event: Details) => {
 
 const bindAction = (hotKey: string, details: Details) => {
     return getKeysBound(hotKey).forEach((bind) => {
-        if (details.type === 'keydown' && bind.keydown.constructor === Function) {
+        if (details.type === 'keydown' && bind.keydown && bind.keydown.constructor === Function) {
             bind.keydown(details)
         }
 
-        if (details.type === 'keyup' && bind.keydown.constructor === Function) {
+        if (details.type === 'keyup' && bind.keyup && bind.keyup.constructor === Function) {
             bind.keyup(details)
         }
     })

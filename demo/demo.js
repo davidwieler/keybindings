@@ -31,9 +31,6 @@ KeyBindings({
             desc: 'test 1',
             keydown: (keyData) => {
                 console.log('on keydown d', keyData)
-            },
-            keyup: () => {
-                // console.log('on keyup')
             }
         },
         {
@@ -88,4 +85,4 @@ console.log('isMac', isMac)
 
 console.log('getAllBinds()', getAllBinds())
 
-destroyBinds()
+// destroyBinds()
